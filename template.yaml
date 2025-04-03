@@ -42,7 +42,7 @@ Parameters:
   DeployService:
     Description: Whether to deploy the ECS service (set to false for initial infrastructure)
     Type: String
-    Default: 'false'
+    Default: 'true'
     AllowedValues:
       - 'true'
       - 'false'
@@ -409,6 +409,8 @@ Resources:
           Environment:
             - Name: AWS_REGION
               Value: !Ref AWS::Region
+            - Name: SPRING_ACTIVE_PROFILE
+              Value: prod
           HealthCheck:
             Command:
               - CMD-SHELL
